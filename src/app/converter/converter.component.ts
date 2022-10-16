@@ -29,22 +29,22 @@ export class ConverterComponent implements OnInit {
 
   setFirstCUrrency(value: string) {
     this.firstCurrencyValue = value;
-    this.toCurrency = true;
+    this.toCurrency = false;
   }
 
   setSecondCurrency(value: string) {
     this.secondCurrencyValue = value;
-    this.toCurrency = false;
+    this.toCurrency = true;
   }
 
   handleFirstSelect(value: any) {
     this.firstCurrency = value;
-    this.toCurrency = true;
+    this.toCurrency = false;
   }
 
   handleSecondSelect(value: any) {
     this.secondCurrency = value;
-    this.toCurrency = false;
+    this.toCurrency = true;
   }
 
   handleConvert() {
@@ -83,13 +83,6 @@ export class ConverterComponent implements OnInit {
       this.secondCurrencyValue = result.toString();
 
       this.textResult = `${this.secondCurrencyValue} ${this.secondCurrency} equals to ${this.firstCurrencyValue} ${this.firstCurrency}`;
-
-      return;
-    }
-
-    if (!this.secondCurrencyValue || !this.firstCurrencyValue) {
-      this.textResult =
-        'Enter value of latest selected currency\n(Last clicked currency will be base currency)';
 
       return;
     }
