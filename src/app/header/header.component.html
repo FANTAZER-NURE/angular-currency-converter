@@ -1,0 +1,14 @@
+<header class="box navbar has-background-light m-1 p-1">
+  <nav class="header__nav navbar-menu">
+    <p class="header__item navbar-item">
+      <span class="is-white">{{ headerCurrencies[0].code }}</span>
+      {{ '/' + eurRate.toFixed(3)
+      }}
+    </p>
+    <p class="header__item navbar-item is-danger">
+      <span class="is-white">USD</span>
+      {{'/' + usdRate.toFixed(3)
+      }}
+    </p>
+  </nav>
+</header>

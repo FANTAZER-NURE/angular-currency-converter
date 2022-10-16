@@ -1,0 +1,100 @@
+<div class="converter section columns">
+  <div class="converter__column column box m-1 is-half">
+    <p class="control has-icons-left has-icons-right">
+      <input
+        #firstInput
+        type="number"
+        class="converter__input input is-primary is-normal is-rounded has-icons-left mb-3 is-hovered"
+        (input)=setFirstCUrrency(firstInput.value)
+        [value]="firstCurrencyValue"
+        placeholder="Enter"
+      >
+      <span class="icon is-small is-left">
+        <i class="fas fa-solid fa-coins"></i>
+      </span>
+    </p>
+
+    <div class="control has-icons-left container ">
+      <div class="select is-primary is-rounded container has-text-centered">
+        <select
+          #firstSelect
+          name="currency"
+          class=""
+          (change)="handleFirstSelect(firstSelect.value)"
+        >
+          <option
+            value="0"
+            selected
+          >
+            Select a currency
+          </option>
+          <option
+            class="converter__option"
+            *ngFor="let currency of currencies"
+          >
+            {{ currency.code }}
+          </option>
+
+        </select>
+      </div>
+      <div class="icon is-small is-left">
+        <i class="fas fa-globe"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="converter__column column box m-1 is-half">
+    <p class="control has-icons-left has-icons-right">
+      <input
+        #secondInput
+        type="number"
+        class="converter__input input is-primary is-normal is-rounded has-icons-left mb-3 is-hovered"
+        (input)=setSecondCurrency(secondInput.value)
+        [value]="secondCurrencyValue"
+        placeholder="Enter"
+      >
+      <span class="icon is-small is-left">
+        <i class="fas fa-solid fa-coins"></i>
+      </span>
+    </p>
+
+    <div class="control has-icons-left container ">
+      <div class="select is-primary is-rounded container has-text-centered">
+        <select
+          #secondSelect
+          name="currency"
+          class=""
+          (change)="handleSecondSelect(secondSelect.value)"
+        >
+          <option
+            value="0"
+            selected
+          >
+            Select a currency
+          </option>
+          <option
+            class="converter__option"
+            *ngFor="let currency of currencies"
+          >
+            {{ currency.code }}
+          </option>
+
+        </select>
+      </div>
+      <div class="icon is-small is-left">
+        <i class="fas fa-globe"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button
+  class="converter__button button is-link is-rounded is-large mb-5"
+  (click)="handleConvert()"
+>
+  Convert
+</button>
+
+<p class="converter__result title has-text-centered">
+  {{ textResult }}
+</p>
