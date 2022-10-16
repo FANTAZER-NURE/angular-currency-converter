@@ -87,6 +87,13 @@ export class ConverterComponent implements OnInit {
       return;
     }
 
+    if (!this.secondCurrencyValue || !this.firstCurrencyValue) {
+      this.textResult =
+        'Enter value of latest selected currency\n(Last clicked currency will be base currency)';
+
+      return;
+    }
+
     if (this.toCurrency) {
       result =
         firstCurrencyRate > secondCurrencyRate
